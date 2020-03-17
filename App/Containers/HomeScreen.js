@@ -1,13 +1,5 @@
 import React, { Component } from 'react';
-import P from 'prop-types';
-import {
-    View,
-    StyleSheet,
-    Image,
-    ScrollView,
-    FlatList,
-    TouchableOpacity,
-} from 'react-native';
+import { View, StyleSheet, Image, ScrollView, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 
 import App_Text from '../Components/Shared/App_Text';
@@ -17,18 +9,9 @@ import { Images } from '../Themes';
 import { screenWidth, isIos } from '../Utils/deviceInfo';
 import { removeMerchant } from '../Utils/merchants';
 import { updateSelectedMerchants } from '../Redux/reducer';
-
-const cardOriginalWidth = 640;
-const cardOriginalHeight = 480;
-const widthChange = screenWidth / cardOriginalWidth;
-const cardHeight = cardOriginalHeight * widthChange;
+import { getCardHeight } from '../Utils/utils';
 
 class Home extends Component {
-    constructor(props) {
-        super(props);
-        const {} = this.props;
-    }
-
     renderSelectedMerchants = () => {
         const { selectedMerchants } = this.props;
         return (
@@ -49,19 +32,11 @@ class Home extends Component {
 
     renderMerchant = merchant => {
         const {
-            item: { image, id },
+            item: { image },
         } = merchant.item;
         const { selectedMerchants, updateSelectedMerchants } = this.props;
         return (
-            <View
-                style={{
-                    flex: 1,
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                }}
-                activeOpacity={0.5}
-            >
+            <View style={styles.merchantContainer} activeOpacity={0.5}>
                 <Image
                     source={{ uri: image }}
                     style={{ height: 75, width: 75 }}
@@ -148,7 +123,7 @@ class Home extends Component {
 
 const styles = StyleSheet.create({
     cardStyle: {
-        height: cardHeight,
+        height: getCardHeight(640, 480),
         width: screenWidth,
     },
     btnStyle: {
@@ -158,6 +133,12 @@ const styles = StyleSheet.create({
         height: 40,
         borderRadius: 5,
         backgroundColor: '#fff',
+    },
+    merchantContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
     },
 });
 

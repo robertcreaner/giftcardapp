@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, Image, TouchableOpacity, Keyboard } from 'react-native';
+import {
+    View,
+    Image,
+    TouchableOpacity,
+    Keyboard,
+    StyleSheet,
+} from 'react-native';
 import { Linking } from 'expo';
 
 import App_Text from '../Shared/App_Text';
@@ -32,21 +38,16 @@ export default ({ merchant, isHighlighted, highlightMerchant }) => {
                 highlightMerchant(merchant);
             }}
             activeOpacity={0.8}
-            style={{
-                flex: 1,
-                flexDirection: 'row',
-                marginBottom: 10,
-                backgroundColor: isHighlighted
-                    ? 'rgba(139, 0, 0, 0.2)'
-                    : '#f5f5f5',
-            }}
+            style={[
+                styles.cardContainer,
+                {
+                    backgroundColor: isHighlighted
+                        ? 'rgba(139, 0, 0, 0.2)'
+                        : '#f5f5f5',
+                },
+            ]}
         >
-            <View
-                style={{
-                    flex: 3,
-                    justifyContent: 'center',
-                }}
-            >
+            <View style={styles.imageContainer}>
                 <Image
                     source={{ uri: image }}
                     style={{ height: 80, width: 80, borderRadius: 5 }}
@@ -65,3 +66,15 @@ export default ({ merchant, isHighlighted, highlightMerchant }) => {
         </TouchableOpacity>
     );
 };
+
+const styles = StyleSheet.create({
+    cardContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        marginBottom: 10,
+    },
+    imageContainer: {
+        flex: 3,
+        justifyContent: 'center',
+    },
+});
