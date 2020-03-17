@@ -1,0 +1,58 @@
+{
+  "name": "GuustoApp",
+  "displayName": "GuustoApp",
+  "expo": {
+    "name": "GuustoApp",
+    "description": "",
+    "slug": "guusto",
+    "privacy": "unlisted",
+    "sdkVersion": "35.0.0",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "primaryColor": "#00D3CC",
+    "icon": "./Assets/Images/icon.png",
+    "splash": {
+      "resizeMode": "cover",
+      "image": "./Assets/splash.png"
+    },
+    "scheme": "guusto",
+    "packagerOpts": {
+      "assetExts": [
+        "ttf"
+      ]
+    },
+    "ios": {
+      "bundleIdentifier": "com.guusto.guustoapp",
+      "buildNumber": "1.0.0",
+      "supportsTablet": true,
+      "isTabletOnly": false,
+      "infoPlist": {
+        "UIUserInterfaceStyle": "Light"
+      }
+    },
+    "android": {
+      "package": "com.guusto.guustoapp",
+      "versionCode": 1,
+      "permissions": []
+    },
+    "updates": {
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 15000
+    },
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "extra": {
+      "colors": {
+        "mainBackground": "#fff",
+        "text": "#262626",
+        "primary": "red"
+      },
+      "config": {
+        "appName": "Guusto App"
+      }
+    }
+  }
+}

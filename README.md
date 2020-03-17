@@ -1,0 +1,3 @@
+-   Clone repo and run: npm install
+-   Make sure expo-cli is installed globally: npm install -g expo-cli
+-   Open terminal, go to root directory and run: expo start
